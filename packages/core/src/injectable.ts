@@ -71,6 +71,15 @@ type MergeDependencies<
   }
 }
 
+type MergeInputs<Inputs extends readonly Injectable<UnknownDependencyTree, unknown>[], Value, Name extends PropertyKey = never> = {
+  readonly [Key in keyof MergeDependencies<
+    Inputs,
+    Name,
+    Value
+  >]: MergeDependencies<Inputs, Name, Value>[Key]
+}
+
+
 export function injectable<
   Name extends PropertyKey,
   Inputs extends readonly Injectable<UnknownDependencyTree, unknown>[],
@@ -78,14 +87,7 @@ export function injectable<
 >(
   name: Name,
   ...args: [...Inputs, (...values: MapInjectablesToValues<Inputs>) => Value]
-): Injectable<
-  {
-    readonly [Key in keyof MergeDependencies<
-      Inputs,
-      Name,
-      Value
-    >]: MergeDependencies<Inputs, Name, Value>[Key]
-  },
+): Injectable<MergeInputs<Inputs, Value, Name>,
   Value
 >
 export function injectable<
@@ -93,15 +95,8 @@ export function injectable<
   Value
 >(
   ...args: [...Inputs, (...values: MapInjectablesToValues<Inputs>) => Value]
-): Injectable<
-  {
-    readonly [Key in keyof MergeDependencies<
-      Inputs,
-      never,
-      Value
-    >]: MergeDependencies<Inputs, never, Value>[Key]
-  },
-  Value
+): Injectable<MergeInputs<Inputs, Value>,
+Value
 >
 export function injectable(
   ...args: readonly unknown[]
