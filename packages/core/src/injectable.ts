@@ -58,7 +58,7 @@ type MapInjectablesToValues<Targets> = {
   readonly [Index in keyof Targets]: InjectableValue<Targets[Index]>
 }
 
-type MergeDependencies<
+export type MergeDependencies<
   Inputs extends readonly Injectable<never, unknown>[],
   Name extends PropertyKey | never,
   Type
@@ -71,7 +71,7 @@ type MergeDependencies<
   }
 }
 
-type MergeInputs<Inputs extends readonly Injectable<UnknownDependencyTree, unknown>[], Value, Name extends PropertyKey = never> = {
+export type MergeInputs<Inputs extends readonly Injectable<UnknownDependencyTree, unknown>[], Value, Name extends PropertyKey = never> = {
   readonly [Key in keyof MergeDependencies<
     Inputs,
     Name,

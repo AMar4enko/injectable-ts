@@ -1,6 +1,6 @@
 {
-  "name": "injectable-ts",
-  "version": "1.0.0",
+  "name": "@tmpro/injectable-ts",
+  "version": "1.0.1",
   "license": "MIT",
   "private": true,
   "workspaces": [
