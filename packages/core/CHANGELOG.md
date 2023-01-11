@@ -3,6 +3,31 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 1.1.0 (2023-01-11)
+
+
+### Bug Fixes
+
+* **core:** fix missing `Name` in `injectable` type signature 87c0c5a
+* **core:** fix support for symbol and number as injectable name 2f9fd5e
+
+
+### Features
+
+* **core:** initial 726102b
+* **core:** partial injectable implementation 5435a47
+* **core:** partial trees 5ae5062
+* **core:** token accessor 04ee90e
+* **core:** trees a001343
+* **core:** trees 7d1b531
+* **core:** trees 0e516a2
+* **core:** trees 9e75d8f
+* **core:** trees f79da8f
+
+
+
+
+
 # [1.0.0-alpha.2](https://github.com/raveclassic/injectable-ts/compare/v1.0.0-alpha.1...v1.0.0-alpha.2) (2022-05-16)
 
 **Note:** Version bump only for package @injectable-ts/core
